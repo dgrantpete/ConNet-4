@@ -1,0 +1,56 @@
+:root {
+    /* Colors */
+    --lighter-multiplier: 1.2;
+    --darker-multiplier: 0.7;
+
+    /* Game Pieces */
+    --player-1-piece-color-base: 15, 70%;
+    --player-1-piece-color-base-lightness: 50%;
+
+    --player-2-piece-color-base: 200, 70%;
+    --player-2-piece-color-base-lightness: 40%;
+
+    --player-1-piece-color: hsl(var(--player-1-piece-color-base), var(--player-1-piece-color-base-lightness));
+    --player-1-piece-color-dark: hsl(var(--player-1-piece-color-base), calc(var(--player-1-piece-color-base-lightness) * var(--darker-multiplier)));
+
+    --player-2-piece-color: hsl(var(--player-2-piece-color-base), var(--player-2-piece-color-base-lightness));
+    --player-2-piece-color-dark: hsl(var(--player-2-piece-color-base), calc(var(--player-2-piece-color-base-lightness) * var(--darker-multiplier)));
+
+    --piece-diameter: 100px;
+
+    --piece-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    display: flex;
+}
+
+.game-piece {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--piece-diameter);
+    height: var(--piece-diameter);
+    border-radius: 50%;
+    box-shadow: var(--piece-shadow);
+    outline: calc(var(--piece-diameter) * 0.05) dotted transparent;
+    outline-offset: calc(var(--piece-diameter) * -0.09);
+}
+
+.game-piece::after {
+    content: '';
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    box-shadow: inset var(--piece-shadow);
+}
+
+.player-1-piece {
+    background-color: var(--player-1-piece-color);
+    outline-color: var(--player-1-piece-color-dark);
+}
+
+.player-2-piece {
+    background-color: var(--player-2-piece-color);
+    outline-color: var(--player-2-piece-color-dark);
+}
