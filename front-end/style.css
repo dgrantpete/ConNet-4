@@ -1,30 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
 :root {
+    /* Font/Text */
+    --primary-font: 'Open Sans', sans-serif;
+
+    --normal-font-size: 1rem;
+    --large-font-size: 2rem;
+
+    --text-color: hsl(0, 0%, 90%);
+
     /* Colors */
-    --lighter-multiplier: 1.2;
-    --darker-multiplier: 0.7;
+    --accent-color: hsl(37, 100%, 45%);
+    --neutral-color: hsl(0, 0%, 70%);
+
+    --background-color: hsl(0, 0%, 20%);
 
     /* Game Pieces */
-    --player-1-piece-color-base: 15, 70%;
-    --player-1-piece-color-base-lightness: 50%;
+    --player-1-piece-color: hsl(15, 70%, 50%);
+    --player-1-piece-color-dark: hsl(15, 70%, 35%);
 
-    --player-2-piece-color-base: 200, 70%;
-    --player-2-piece-color-base-lightness: 40%;
-
-    --player-1-piece-color: hsl(var(--player-1-piece-color-base), var(--player-1-piece-color-base-lightness));
-    --player-1-piece-color-dark: hsl(var(--player-1-piece-color-base), calc(var(--player-1-piece-color-base-lightness) * var(--darker-multiplier)));
-
-    --player-2-piece-color: hsl(var(--player-2-piece-color-base), var(--player-2-piece-color-base-lightness));
-    --player-2-piece-color-dark: hsl(var(--player-2-piece-color-base), calc(var(--player-2-piece-color-base-lightness) * var(--darker-multiplier)));
+    --player-2-piece-color: hsl(200, 90%, 40%);
+    --player-2-piece-color-dark: hsl(200, 90%, 25%);
 
     --piece-diameter: 100px;
 
     --piece-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+
+    /* Thicknesses */
+    --border-thin: 3px;
+    --border-thick: 5px;
 }
 
 body {
-    display: flex;
+    font-family: var(--primary-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
+.title {
+    font-size: var(--large-font-size);
+    text-align: center;
+    margin: var(--spacing-md);
+    letter-spacing: 0.2rem;
+}
+
+/* Game Board */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: var(--spacing-lg);
+}
+
+.game-board {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+}
+
+.game-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: end;
+    gap: var(--spacing-md);
+    cursor: pointer;
+}
+
+/* Game Pieces */
 .game-piece {
     display: flex;
     justify-content: center;
@@ -33,8 +87,8 @@ body {
     height: var(--piece-diameter);
     border-radius: 50%;
     box-shadow: var(--piece-shadow);
-    outline: calc(var(--piece-diameter) * 0.05) dotted transparent;
-    outline-offset: calc(var(--piece-diameter) * -0.09);
+    outline: var(--border-thick) dotted transparent;
+    outline-offset: -8px;
 }
 
 .game-piece::after {
@@ -53,4 +107,27 @@ body {
 .player-2-piece {
     background-color: var(--player-2-piece-color);
     outline-color: var(--player-2-piece-color-dark);
+}
+
+.empty-piece {
+    box-shadow: none;
+    outline: dashed var(--border-thin) var(--neutral-color);
+    outline-offset: -4px;
+}
+
+.empty-piece::after {
+    content: none;
+}
+
+.semi-transparent {
+    opacity: 0.7;
+}
+
+.button {
+    font-family: var(--primary-font);
+    font-size: var(--large-font-size);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border: none;
+    background-color: var(--accent-color);
 }
