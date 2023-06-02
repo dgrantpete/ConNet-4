@@ -13,7 +13,6 @@ columns.forEach(function (column) {
 
         // If there's an empty piece, show a semi-transparent version of the current player's piece
         if (lastEmptyPiece) {
-            lastEmptyPiece.classList.remove('empty-piece');
             lastEmptyPiece.classList.add(currentPlayer, 'semi-transparent');
         }
     });
@@ -25,7 +24,6 @@ columns.forEach(function (column) {
 
         // If there's an empty piece, remove the semi-transparent version of the current player's piece
         if (lastEmptyPiece) {
-            lastEmptyPiece.classList.add('empty-piece');
             lastEmptyPiece.classList.remove(currentPlayer, 'semi-transparent');
         }
     });
@@ -37,7 +35,7 @@ columns.forEach(function (column) {
 
         // If there's an empty piece, place the current player's piece
         if (lastEmptyPiece) {
-            lastEmptyPiece.classList.remove('empty-piece', 'semi-transparent');
+            lastEmptyPiece.classList.remove('semi-transparent');
             lastEmptyPiece.classList.add(currentPlayer);
 
             // Switch the current player
@@ -56,7 +54,7 @@ function getLastEmptyPiece(column) {
 
     // Go through the pieces from bottom to top
     for (let i = pieces.length - 1; i >= 0; i--) {
-        if (pieces[i].classList.contains('empty-piece') || pieces[i].classList.contains('semi-transparent')) {
+        if (pieces[i].classList.contains('semi-transparent') || !(pieces[i].classList.contains('player-1-piece') || pieces[i].classList.contains('player-2-piece'))) {
             lastEmptyPiece = pieces[i];
             break;
         }
