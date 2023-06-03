@@ -85,7 +85,10 @@ body {
     align-items: center;
     justify-content: end;
     gap: var(--spacing-md);
-    cursor: pointer;
+}
+
+.game-column:has(.last-empty-row) {
+  cursor: pointer;
 }
 
 /* Game Pieces */
@@ -128,8 +131,13 @@ body {
     outline-color: var(--player-2-piece-color-dark);
 }
 
-.semi-transparent {
-    opacity: 0.5;
+.last-empty-row {
+  visibility: hidden;
+  opacity: 0.5;
+}
+
+.game-column:hover .last-empty-row {
+  visibility: visible;
 }
 
 .button {
