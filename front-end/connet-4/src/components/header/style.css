@@ -1,0 +1,6 @@
+.page-header-text {
+    font-size: var(--large-font-size);
+    text-align: center;
+    letter-spacing: 0.2rem;
+    font-family: var(--primary-font);
+}

@@ -1,18 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import GameBoard from './GameBoard';
-import React, { Component } from 'react'
+import Game from './components/game-board/game.jsx';
+import Header from './components/header/header.jsx';
+import React, { Component } from 'react';
 
 class App extends Component {
   render() {
     console.log('render');
 
     return (
-      <main>
-        <div className="game-container">
-          <GameBoard height={6} width={7} />
-        </div>
-      </main>
+      <div className="App">
+        <Header />
+        <Game height={6} width={7} />
+      </div>
     );
   }
 }
