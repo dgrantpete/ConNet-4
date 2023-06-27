@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="GameLogic\**" />
+    <Compile Remove="game_logic_rust\**" />
+    <EmbeddedResource Remove="GameLogic\**" />
+    <EmbeddedResource Remove="game_logic_rust\**" />
+    <None Remove="GameLogic\**" />
+    <None Remove="game_logic_rust\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="game_logic_rust.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
